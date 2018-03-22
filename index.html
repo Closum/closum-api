@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Closum API Documentation</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,9 +212,6 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -222,112 +219,129 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#querystring-parameters" class="toc-h1 toc-link" data-title="querystring-parameters">Querystring Parameters</a>
+          </li>
+          <li>
+            <a href="#leads" class="toc-h1 toc-link" data-title="leads">Leads</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#list-all-leads" class="toc-h2 toc-link" data-title="list-all-leads">List All Leads</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#create-a-new-lead" class="toc-h2 toc-link" data-title="create-a-new-lead">Create a New Lead</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#retrieve-a-lead" class="toc-h2 toc-link" data-title="retrieve-a-lead">Retrieve a Lead</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-lead" class="toc-h2 toc-link" data-title="update-a-lead">Update a Lead</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#cities" class="toc-h1 toc-link" data-title="cities">Cities</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-all-cities" class="toc-h2 toc-link" data-title="list-all-cities">List All Cities</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#emails" class="toc-h1 toc-link" data-title="emails">Emails</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#email-properties" class="toc-h2 toc-link" data-title="email-properties">Email Properties</a>
+                  </li>
+                  <li>
+                    <a href="#list-all-emails" class="toc-h2 toc-link" data-title="list-all-emails">List All Emails</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-new-email" class="toc-h2 toc-link" data-title="create-a-new-email">Create a New Email</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-an-email" class="toc-h2 toc-link" data-title="retrieve-an-email">Retrieve an Email</a>
+                  </li>
+                  <li>
+                    <a href="#update-an-email" class="toc-h2 toc-link" data-title="update-an-email">Update an Email</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#phones" class="toc-h1 toc-link" data-title="phones">Phones</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#phone-properties" class="toc-h2 toc-link" data-title="phone-properties">Phone Properties</a>
+                  </li>
+                  <li>
+                    <a href="#list-all-phones" class="toc-h2 toc-link" data-title="list-all-phones">List All Phones</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-new-phone" class="toc-h2 toc-link" data-title="create-a-new-phone">Create a New Phone</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-a-phone" class="toc-h2 toc-link" data-title="retrieve-a-phone">Retrieve a Phone</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-phone" class="toc-h2 toc-link" data-title="update-a-phone">Update a Phone</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://www.closum.com' target="_blank">Sign Up for Closum</a></li>
+            <li><a href='mailto:hello@closum.com'>Documentation Related Issues</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the Closum API! You can use our API to access Closum API endpoints, which can retrieve any data associated with your account.</p>
 
 <p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>To request your Bearer token, use this code:</p>
 </blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"http://api.closum.tld/api/token"</span>
+-H <span class="s2">"Accept: application/json"</span>
+-H <span class="s2">"Content-Type: application/json"</span>
+-X POST -d <span class="s1">'{"email":"email@closum.com","password":"yourpassword"}'</span>
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
+<p>Make sure to replace <code>email@closum.com</code> with your Closum user email and <code>yourpassword</code> with the corresponding password.</p>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-<blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.q2chPMiKRzwrO3v48fi90HyJPHDLOXtwEKr7EcU3GPk"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<p>Closum uses Bearer Tokens to allow access to the API.</p>
+
+<p>Closum expects for the Bearer Token to be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code>Authorization: Bearer your.bearer.token</code></p>
+
+<aside class="notice">
+You must replace <code>your.bearer.token</code> with your personal Bearer Token.
+</aside>
+<h1 id='querystring-parameters'>Querystring Parameters</h1>
+<p>Our API comes with support for querystring parameters that you can use to manipulate the output produced by our API.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -336,51 +350,150 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>limit</td>
+<td>25</td>
+<td>If set, <code>limit</code> parameter will manipulate the number of records returned.</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>page</td>
+<td>1</td>
+<td>If set, <code>page</code> parameter will retrieve records from another page.</td>
+</tr>
+<tr>
+<td>sort</td>
+<td><code>id</code></td>
+<td>If set, <code>sort</code> parameter will specify which field should be used to sort the results produced.</td>
+</tr>
+<tr>
+<td>direction</td>
+<td><code>asc</code></td>
+<td>This parameter <strong>in combination</strong> with the <code>sort</code> parameter to specify the direction in which results are sorted.</td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<h1 id='leads'>Leads</h1><h2 id='list-all-leads'>List All Leads</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+http://api.closum.tld/api/lead <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sylvia L. Hook"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"creation_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T10:00:00+00:00"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"city_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"custom_data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"extension"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"517-388-1452"</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sylvialhook@closum.com"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                  </span><span class="err">...</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_prev_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">25025</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p>This endpoint retrieves all leads associated with your account.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://api.closum.tld/api/lead</code></p>
+<h2 id='create-a-new-lead'>Create a New Lead</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+http://api.closum.tld/api/lead <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-d <span class="s1">'{
+      "name": "Sylvia L. Hook",
+      "email" : {"email" : "sylvialhook@closum.com"},
+      "phone" : {"extension" : "001","number" : "517-388-1452"}
+}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to add a new Lead.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code>POST http://api.closum.tld/api/lead</code></p>
+<h3 id='request-body'>Request body</h3>
+<p>Body should be formated in (absolutely) correct JSON format</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>The <strong>name</strong> of lead.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>A <strong>JSON</strong> <a href="#email-properties">email object</a></td>
+</tr>
+<tr>
+<td>phone</td>
+<td>A <strong>JSON</strong> phone object</td>
+</tr>
+</tbody></table>
+<h2 id='retrieve-a-lead'>Retrieve a Lead</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+http://api.closum.tld/api/lead/1 <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sylvia L. Hook"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"creation_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-30T19:31:14+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"city_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"custom_data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sylvialhook@closum.com"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"extension"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"517-388-1452"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific Lead.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET http://api.closum.tld/api/lead/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -390,36 +503,41 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>The ID of the Lead to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<h2 id='update-a-lead'>Update a Lead</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+http://api.closum.tld/api/lead/1 <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-d <span class="s1">'{
+      "name": "Sylvia L. Hook",
+      "city_id": 1,
+      "custom_data": null,
+      "email": {
+            "id" : 1,
+            "email": "sylvialhook@closum.com"
+      },
+      "phone": {
+            "id": 1,
+            "extension" : "001",
+            "number": "517-388-1452"
+      }
+}'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
+<p>This endpoint updates a specific Lead.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT http://api.closum.tld/api/lead/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -429,13 +547,466 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>The ID of the Lead to update</td>
+</tr>
+</tbody></table>
+<h3 id='request-body-2'>Request body</h3>
+<p>Body should be formated in (absolutely) correct JSON format</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>The <strong>name</strong> of lead.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>A <strong>JSON</strong> email object</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>A <strong>JSON</strong> phone object</td>
+</tr>
+</tbody></table>
+<h1 id='cities'>Cities</h1><h2 id='list-all-cities'>List All Cities</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+http://api.closum.tld/api/city <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">213</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"city_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Abrantes"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                  </span><span class="err">...</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_prev_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">308</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all leads associated with your account.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET http://api.closum.tld/api/lead</code></p>
+<h1 id='emails'>Emails</h1><h2 id='email-properties'>Email Properties</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Read Only</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>integer</td>
+<td>True</td>
+<td>The <strong>id</strong> relative to email</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>False</td>
+<td>The <strong>email</strong> address to insert</td>
+</tr>
+<tr>
+<td>status</td>
+<td>integer</td>
+<td>Yes</td>
+<td>The activation <strong>status</strong> relative to email</td>
+</tr>
+<tr>
+<td>register_date</td>
+<td>date-time</td>
+<td>Yes</td>
+<td>The <strong>register_date</strong> of the record</td>
+</tr>
+</tbody></table>
+<h2 id='list-all-emails'>List All Emails</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+http://api.closum.tld/api/email <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sylvialhook@closum.com"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"register_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T01:01:01+00:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                  </span><span class="err">...</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_prev_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all emails associated with your account.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET http://api.closum.tld/api/email</code></p>
+<h2 id='create-a-new-email'>Create a New Email</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+http://api.closum.tld/api/email <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-d <span class="s1">'{
+      "email" : "sylvialhook@closum.com"
+}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to add a new Email.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST http://api.closum.tld/api/email</code></p>
+<h3 id='request-body-3'>Request body</h3>
+<p>Body should be formated in (absolutely) correct JSON format</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>The <strong>email</strong> address to insert</td>
+</tr>
+</tbody></table>
+<h2 id='retrieve-an-email'>Retrieve an Email</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+http://api.closum.tld/api/email/1 <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sylvialhook@closum.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"register_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T01:01:01+00:00"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific Email.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET http://api.closum.tld/api/email/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the Email to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='update-an-email'>Update an Email</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+http://api.closum.tld/api/email/1 <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-d <span class="s1">'{
+      "id" : 1,
+      "email": "update.sylvialhook@closum.com"
+}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a specific Email.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>PUT http://api.closum.tld/api/email/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the Email to update</td>
+</tr>
+</tbody></table>
+<h3 id='request-body-4'>Request body</h3>
+<p>Body should be formated in (absolutely) correct JSON format</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>The new <strong>email</strong> address</td>
+</tr>
+</tbody></table>
+<h1 id='phones'>Phones</h1><h2 id='phone-properties'>Phone Properties</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Read Only</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>integer</td>
+<td>True</td>
+<td>The <strong>id</strong> relative to phone</td>
+</tr>
+<tr>
+<td>extension</td>
+<td>string</td>
+<td>False</td>
+<td>The phone <strong>extension</strong> associated with country</td>
+</tr>
+<tr>
+<td>number</td>
+<td>string</td>
+<td>False</td>
+<td>The <strong>phone</strong> number</td>
+</tr>
+<tr>
+<td>is_valid</td>
+<td>boolean</td>
+<td>Yes</td>
+<td>The phone validation <strong>status</strong></td>
+</tr>
+<tr>
+<td>date_add</td>
+<td>date-time</td>
+<td>Yes</td>
+<td>The <strong>register_date</strong> of the record</td>
+</tr>
+</tbody></table>
+<h2 id='list-all-phones'>List All Phones</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+http://api.closum.tld/api/phone <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"517-388-1452"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"is_valid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"date_add"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T10:00:00+00:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                  </span><span class="err">...</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_prev_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all phones associated with your account.</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>GET http://api.closum.tld/api/phone</code></p>
+<h2 id='create-a-new-phone'>Create a New Phone</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+curl -X POST <span class="se">\</span>
+http://api.closum.tld/api/phone <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+-d <span class="s1">'{
+      "extension": "001",
+      "number": "517-388-1452"
+}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to add a new Phone.</p>
+<h3 id='http-request-11'>HTTP Request</h3>
+<p><code>POST http://api.closum.tld/api/phone</code></p>
+<h3 id='request-body-5'>Request body</h3>
+<p>Body should be formated in (absolutely) correct JSON format</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>extension</td>
+<td>The phone <strong>extension</strong> associated with country</td>
+</tr>
+<tr>
+<td>number</td>
+<td>The <strong>phone</strong> number</td>
+</tr>
+</tbody></table>
+<h2 id='retrieve-a-phone'>Retrieve a Phone</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+http://api.closum.tld/api/phone/1 <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"517-388-1452"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_valid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date_add"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T10:00:00+00:00"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific Phone.</p>
+<h3 id='http-request-12'>HTTP Request</h3>
+<p><code>GET http://api.closum.tld/api/phone/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of Phone to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-phone'>Update a Phone</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+http://api.closum.tld/api/phone/1 <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+-d <span class="s1">'{
+      "id" : 1,
+      "extension": "001",
+      "number": "517-388-1452"
+}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a specific Phone.</p>
+<h3 id='http-request-13'>HTTP Request</h3>
+<p><code>PUT http://api.closum.tld/api/phone/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-6'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of Phone to update</td>
+</tr>
+</tbody></table>
+<h3 id='request-body-6'>Request body</h3>
+<p>Body should be formated in (absolutely) correct JSON format</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>extension</td>
+<td>The phone <strong>extension</strong> associated with country</td>
+</tr>
+<tr>
+<td>number</td>
+<td>The <strong>phone</strong> number</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<p>The Closum API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -445,39 +1016,23 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request -- Your request sucks.</td>
+<td>Bad Request -- Your request is invalid.</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>Unauthorized -- Your Bearer Token is wrong.</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Forbidden -- You don&#39;t have permission to access this request on this server.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Not Found -- The specified record could not be found.</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Method Not Allowed -- You tried to access with an invalid method.</td>
 </tr>
 <tr>
 <td>500</td>
@@ -493,9 +1048,6 @@ Remember — a happy kitten is an authenticated kitten!
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
