@@ -2,4 +2,4 @@
 
 Repository of documentation REST API Closum.
 
-This project is based on [Slate](https://github.com/tripit/slate).
+This project is based on [Slate](https://github.com//lord/slate).
