@@ -26,7 +26,7 @@ We have language bindings in Shell, Ruby, and Python! You can view code examples
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "http://api.closum.tld/api/token"
+curl "https://api.closum.com/api/token"
 -H "Accept: application/json"
 -H "Content-Type: application/json"
 -X POST -d '{"email":"email@closum.com","password":"yourpassword"}'
@@ -68,11 +68,23 @@ direction | `asc` | This parameter **in combination** with the `sort` parameter 
 
 # Leads
 
+## Lead Properties
+
+Parameter | Type | Read Only | Description
+--------- | --------- | --------- | -----------
+ID | integer | True | The **id** relative to lead
+name | string | False | The **name** relative to lead
+city_id | integer | False | The **city_id** relative to lead
+custom_data | string | false | A **JSON** formated string containing extra fields
+creation_date | date-time | True | The **creation_date** of the record
+phone | object | False | The **phone** object associated to lead
+email | object | False | The **email** object associated to lead
+
 ## List All Leads
 
 ```shell
 curl -X GET \
-http://api.closum.tld/api/lead \
+https://api.closum.com/api/lead \
 -H 'Accept: application/json' \
 -H 'Authorization: Bearer your.bearer.token' \
 -H 'Cache-Control: no-cache' \
@@ -88,9 +100,9 @@ http://api.closum.tld/api/lead \
             {
                   "id": 1,
                   "name": "Sylvia L. Hook",
-                  "creation_date": "2018-01-01T10:00:00+00:00",
                   "city_id": 40,
                   "custom_data": null,
+                  "creation_date": "2018-01-01T10:00:00+00:00",
                   "phone": {
                         "extension" : "001",
                         "number": "517-388-1452"
@@ -118,14 +130,14 @@ This endpoint retrieves all leads associated with your account.
 
 ### HTTP Request
 
-`GET http://api.closum.tld/api/lead`
+`GET https://api.closum.com/api/lead`
 
 
 ## Create a New Lead
 
 ```shell
 curl -X POST \
-http://api.closum.tld/api/lead \
+https://api.closum.com/api/lead \
 -H 'Accept: application/json' \
 -H 'Authorization: Bearer your.bearer.token' \
 -H 'Cache-Control: no-cache' \
@@ -152,7 +164,7 @@ This endpoint allows you to add a new Lead.
 
 ### HTTP Request
 
-`POST http://api.closum.tld/api/lead`
+`POST https://api.closum.com/api/lead`
 
 ### Request body
 Body should be formated in (absolutely) correct JSON format
@@ -167,7 +179,7 @@ phone | A **JSON** phone object
 
 ```shell
 curl -X GET \
-http://api.closum.tld/api/lead/1 \
+https://api.closum.com/api/lead/1 \
 -H 'Accept: application/json' \
 -H 'Authorization: Bearer your.bearer.token' \
 -H 'Cache-Control: no-cache' \
@@ -202,7 +214,7 @@ This endpoint retrieves a specific Lead.
 
 ### HTTP Request
 
-`GET http://api.closum.tld/api/lead/<ID>`
+`GET https://api.closum.com/api/lead/<ID>`
 
 ### URL Parameters
 
@@ -214,7 +226,7 @@ ID | The ID of the Lead to retrieve
 
 ```shell
 curl -X PUT \
-http://api.closum.tld/api/lead/1 \
+https://api.closum.com/api/lead/1 \
 -H 'Accept: application/json' \
 -H 'Authorization: Bearer your.bearer.token' \
 -H 'Cache-Control: no-cache' \
@@ -248,7 +260,7 @@ This endpoint updates a specific Lead.
 
 ### HTTP Request
 
-`PUT http://api.closum.tld/api/lead/<ID>`
+`PUT https://api.closum.com/api/lead/<ID>`
 
 ### URL Parameters
 
@@ -271,7 +283,7 @@ phone | A **JSON** phone object
 
 ```shell
 curl -X GET \
-http://api.closum.tld/api/city \
+https://api.closum.com/api/city \
 -H 'Accept: application/json' \
 -H 'Authorization: Bearer your.bearer.token' \
 -H 'Cache-Control: no-cache' \
@@ -307,7 +319,7 @@ This endpoint retrieves all leads associated with your account.
 
 ### HTTP Request
 
-`GET http://api.closum.tld/api/lead`
+`GET https://api.closum.com/api/lead`
 
 # Emails
 
@@ -324,7 +336,7 @@ register_date | date-time | Yes | The **register_date** of the record
 
 ```shell
 curl -X GET \
-http://api.closum.tld/api/email \
+https://api.closum.com/api/email \
 -H 'Accept: application/json' \
 -H 'Authorization: Bearer your.bearer.token' \
 -H 'Cache-Control: no-cache' \
@@ -362,14 +374,14 @@ This endpoint retrieves all emails associated with your account.
 
 ### HTTP Request
 
-`GET http://api.closum.tld/api/email`
+`GET https://api.closum.com/api/email`
 
 
 ## Create a New Email
 
 ```shell
 curl -X POST \
-http://api.closum.tld/api/email \
+https://api.closum.com/api/email \
 -H 'Accept: application/json' \
 -H 'Authorization: Bearer your.bearer.token' \
 -H 'Cache-Control: no-cache' \
@@ -394,7 +406,7 @@ This endpoint allows you to add a new Email.
 
 ### HTTP Request
 
-`POST http://api.closum.tld/api/email`
+`POST https://api.closum.com/api/email`
 
 ### Request body
 Body should be formated in (absolutely) correct JSON format
@@ -407,7 +419,7 @@ email | The **email** address to insert
 
 ```shell
 curl -X GET \
-http://api.closum.tld/api/email/1 \
+https://api.closum.com/api/email/1 \
 -H 'Accept: application/json' \
 -H 'Authorization: Bearer your.bearer.token' \
 -H 'Cache-Control: no-cache' \
@@ -432,7 +444,7 @@ This endpoint retrieves a specific Email.
 
 ### HTTP Request
 
-`GET http://api.closum.tld/api/email/<ID>`
+`GET https://api.closum.com/api/email/<ID>`
 
 ### URL Parameters
 
@@ -444,7 +456,7 @@ ID | The ID of the Email to retrieve
 
 ```shell
 curl -X PUT \
-http://api.closum.tld/api/email/1 \
+https://api.closum.com/api/email/1 \
 -H 'Accept: application/json' \
 -H 'Authorization: Bearer your.bearer.token' \
 -H 'Cache-Control: no-cache' \
@@ -468,7 +480,7 @@ This endpoint updates a specific Email.
 
 ### HTTP Request
 
-`PUT http://api.closum.tld/api/email/<ID>`
+`PUT https://api.closum.com/api/email/<ID>`
 
 ### URL Parameters
 
@@ -499,7 +511,7 @@ date_add | date-time | Yes | The **register_date** of the record
 
 ```shell
 curl -X GET \
-http://api.closum.tld/api/phone \
+https://api.closum.com/api/phone \
 -H 'Accept: application/json' \
 -H 'Authorization: Bearer your.bearer.token' \
 -H 'Cache-Control: no-cache' \
@@ -538,7 +550,7 @@ This endpoint retrieves all phones associated with your account.
 
 ### HTTP Request
 
-`GET http://api.closum.tld/api/phone`
+`GET https://api.closum.com/api/phone`
 
 
 ## Create a New Phone
@@ -546,7 +558,7 @@ This endpoint retrieves all phones associated with your account.
 ```shell
 curl -X POST \
 curl -X POST \
-http://api.closum.tld/api/phone \
+https://api.closum.com/api/phone \
 -H 'Accept: application/json' \
 -H 'Authorization: Bearer your.bearer.token' \
 -H 'Cache-Control: no-cache' \
@@ -572,7 +584,7 @@ This endpoint allows you to add a new Phone.
 
 ### HTTP Request
 
-`POST http://api.closum.tld/api/phone`
+`POST https://api.closum.com/api/phone`
 
 ### Request body
 Body should be formated in (absolutely) correct JSON format
@@ -586,7 +598,7 @@ number | The **phone** number
 
 ```shell
 curl -X GET \
-http://api.closum.tld/api/phone/1 \
+https://api.closum.com/api/phone/1 \
 -H 'Accept: application/json' \
 -H 'Authorization: Bearer your.bearer.token' \
 -H 'Cache-Control: no-cache' \
@@ -612,7 +624,7 @@ This endpoint retrieves a specific Phone.
 
 ### HTTP Request
 
-`GET http://api.closum.tld/api/phone/<ID>`
+`GET https://api.closum.com/api/phone/<ID>`
 
 ### URL Parameters
 
@@ -624,7 +636,7 @@ ID | The ID of Phone to retrieve
 
 ```shell
 curl -X PUT \
-http://api.closum.tld/api/phone/1 \
+https://api.closum.com/api/phone/1 \
 -H 'Accept: application/json' \
 -H 'Authorization: Bearer your.bearer.token' \
 -H 'Cache-Control: no-cache' \
@@ -649,7 +661,7 @@ This endpoint updates a specific Phone.
 
 ### HTTP Request
 
-`PUT http://api.closum.tld/api/phone/<ID>`
+`PUT https://api.closum.com/api/phone/<ID>`
 
 ### URL Parameters
 
