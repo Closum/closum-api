@@ -7,6 +7,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
 - <a href='https://www.closum.com' target="_blank">Sign Up for Closum</a>
 - <a href='mailto:hello@closum.com'>Documentation Related Issues</a>
+- <a href='https://github.com/closum'>GitHub Repository</a>
 
 includes:
 - errors
@@ -61,8 +62,8 @@ Our API comes with support for querystring parameters that you can use to manipu
 
 Parameter | Default | Description
 --------- | ------- | -----------
-limit | 25 | If set, `limit` parameter will manipulate the number of records returned.
-page | 1 | If set, `page` parameter will retrieve records from another page.
+limit | `25` | If set, `limit` parameter will manipulate the number of records returned.
+page | `1` | If set, `page` parameter will retrieve records from another page.
 sort | `id` | If set, `sort` parameter will specify which field should be used to sort the results produced.
 direction | `asc` | This parameter **in combination** with the `sort` parameter to specify the direction in which results are sorted.
 
