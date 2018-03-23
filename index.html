@@ -231,6 +231,9 @@
             <a href="#leads" class="toc-h1 toc-link" data-title="leads">Leads</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#lead-properties" class="toc-h2 toc-link" data-title="lead-properties">Lead Properties</a>
+                  </li>
+                  <li>
                     <a href="#list-all-leads" class="toc-h2 toc-link" data-title="list-all-leads">List All Leads</a>
                   </li>
                   <li>
@@ -313,7 +316,7 @@
 <p>To request your Bearer token, use this code:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"http://api.closum.tld/api/token"</span>
+curl <span class="s2">"https://api.closum.com/api/token"</span>
 -H <span class="s2">"Accept: application/json"</span>
 -H <span class="s2">"Content-Type: application/json"</span>
 -X POST -d <span class="s1">'{"email":"email@closum.com","password":"yourpassword"}'</span>
@@ -370,8 +373,60 @@ You must replace <code>your.bearer.token</code> with your personal Bearer Token.
 <td>This parameter <strong>in combination</strong> with the <code>sort</code> parameter to specify the direction in which results are sorted.</td>
 </tr>
 </tbody></table>
-<h1 id='leads'>Leads</h1><h2 id='list-all-leads'>List All Leads</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-http://api.closum.tld/api/lead <span class="se">\</span>
+<h1 id='leads'>Leads</h1><h2 id='lead-properties'>Lead Properties</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Read Only</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>integer</td>
+<td>True</td>
+<td>The <strong>id</strong> relative to lead</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>False</td>
+<td>The <strong>name</strong> relative to lead</td>
+</tr>
+<tr>
+<td>city_id</td>
+<td>integer</td>
+<td>False</td>
+<td>The <strong>city_id</strong> relative to lead</td>
+</tr>
+<tr>
+<td>custom_data</td>
+<td>string</td>
+<td>false</td>
+<td>A <strong>JSON</strong> formated string containing extra fields</td>
+</tr>
+<tr>
+<td>creation_date</td>
+<td>date-time</td>
+<td>True</td>
+<td>The <strong>creation_date</strong> of the record</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>object</td>
+<td>False</td>
+<td>The <strong>phone</strong> object associated to lead</td>
+</tr>
+<tr>
+<td>email</td>
+<td>object</td>
+<td>False</td>
+<td>The <strong>email</strong> object associated to lead</td>
+</tr>
+</tbody></table>
+<h2 id='list-all-leads'>List All Leads</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+https://api.closum.com/api/lead <span class="se">\</span>
 -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
 -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
@@ -386,9 +441,9 @@ http://api.closum.tld/api/lead <span class="se">\</span>
             </span><span class="p">{</span><span class="w">
                   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sylvia L. Hook"</span><span class="p">,</span><span class="w">
-                  </span><span class="s2">"creation_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T10:00:00+00:00"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"city_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"custom_data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"creation_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T10:00:00+00:00"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"extension"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"517-388-1452"</span><span class="w">
@@ -413,9 +468,9 @@ http://api.closum.tld/api/lead <span class="se">\</span>
 </span></code></pre>
 <p>This endpoint retrieves all leads associated with your account.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://api.closum.tld/api/lead</code></p>
+<p><code>GET https://api.closum.com/api/lead</code></p>
 <h2 id='create-a-new-lead'>Create a New Lead</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-http://api.closum.tld/api/lead <span class="se">\</span>
+https://api.closum.com/api/lead <span class="se">\</span>
 -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
 -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
@@ -438,7 +493,7 @@ http://api.closum.tld/api/lead <span class="se">\</span>
 </span></code></pre>
 <p>This endpoint allows you to add a new Lead.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST http://api.closum.tld/api/lead</code></p>
+<p><code>POST https://api.closum.com/api/lead</code></p>
 <h3 id='request-body'>Request body</h3>
 <p>Body should be formated in (absolutely) correct JSON format</p>
 
@@ -462,7 +517,7 @@ http://api.closum.tld/api/lead <span class="se">\</span>
 </tr>
 </tbody></table>
 <h2 id='retrieve-a-lead'>Retrieve a Lead</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-http://api.closum.tld/api/lead/1 <span class="se">\</span>
+https://api.closum.com/api/lead/1 <span class="se">\</span>
 -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
 -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
@@ -493,7 +548,7 @@ http://api.closum.tld/api/lead/1 <span class="se">\</span>
 </span></code></pre>
 <p>This endpoint retrieves a specific Lead.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET http://api.closum.tld/api/lead/&lt;ID&gt;</code></p>
+<p><code>GET https://api.closum.com/api/lead/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -507,7 +562,7 @@ http://api.closum.tld/api/lead/1 <span class="se">\</span>
 </tr>
 </tbody></table>
 <h2 id='update-a-lead'>Update a Lead</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-http://api.closum.tld/api/lead/1 <span class="se">\</span>
+https://api.closum.com/api/lead/1 <span class="se">\</span>
 -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
 -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
@@ -537,7 +592,7 @@ http://api.closum.tld/api/lead/1 <span class="se">\</span>
 </span></code></pre>
 <p>This endpoint updates a specific Lead.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT http://api.closum.tld/api/lead/&lt;ID&gt;</code></p>
+<p><code>PUT https://api.closum.com/api/lead/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -573,7 +628,7 @@ http://api.closum.tld/api/lead/1 <span class="se">\</span>
 </tr>
 </tbody></table>
 <h1 id='cities'>Cities</h1><h2 id='list-all-cities'>List All Cities</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-http://api.closum.tld/api/city <span class="se">\</span>
+https://api.closum.com/api/city <span class="se">\</span>
 -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
 -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
@@ -605,7 +660,7 @@ http://api.closum.tld/api/city <span class="se">\</span>
 </span></code></pre>
 <p>This endpoint retrieves all leads associated with your account.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET http://api.closum.tld/api/lead</code></p>
+<p><code>GET https://api.closum.com/api/lead</code></p>
 <h1 id='emails'>Emails</h1><h2 id='email-properties'>Email Properties</h2>
 <table><thead>
 <tr>
@@ -641,7 +696,7 @@ http://api.closum.tld/api/city <span class="se">\</span>
 </tr>
 </tbody></table>
 <h2 id='list-all-emails'>List All Emails</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-http://api.closum.tld/api/email <span class="se">\</span>
+https://api.closum.com/api/email <span class="se">\</span>
 -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
 -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
@@ -675,9 +730,9 @@ http://api.closum.tld/api/email <span class="se">\</span>
 </span></code></pre>
 <p>This endpoint retrieves all emails associated with your account.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET http://api.closum.tld/api/email</code></p>
+<p><code>GET https://api.closum.com/api/email</code></p>
 <h2 id='create-a-new-email'>Create a New Email</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-http://api.closum.tld/api/email <span class="se">\</span>
+https://api.closum.com/api/email <span class="se">\</span>
 -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
 -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
@@ -698,7 +753,7 @@ http://api.closum.tld/api/email <span class="se">\</span>
 </span></code></pre>
 <p>This endpoint allows you to add a new Email.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>POST http://api.closum.tld/api/email</code></p>
+<p><code>POST https://api.closum.com/api/email</code></p>
 <h3 id='request-body-3'>Request body</h3>
 <p>Body should be formated in (absolutely) correct JSON format</p>
 
@@ -714,7 +769,7 @@ http://api.closum.tld/api/email <span class="se">\</span>
 </tr>
 </tbody></table>
 <h2 id='retrieve-an-email'>Retrieve an Email</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-http://api.closum.tld/api/email/1 <span class="se">\</span>
+https://api.closum.com/api/email/1 <span class="se">\</span>
 -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
 -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
@@ -735,7 +790,7 @@ http://api.closum.tld/api/email/1 <span class="se">\</span>
 </span></code></pre>
 <p>This endpoint retrieves a specific Email.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET http://api.closum.tld/api/email/&lt;ID&gt;</code></p>
+<p><code>GET https://api.closum.com/api/email/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -749,7 +804,7 @@ http://api.closum.tld/api/email/1 <span class="se">\</span>
 </tr>
 </tbody></table>
 <h2 id='update-an-email'>Update an Email</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-http://api.closum.tld/api/email/1 <span class="se">\</span>
+https://api.closum.com/api/email/1 <span class="se">\</span>
 -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
 -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
@@ -769,7 +824,7 @@ http://api.closum.tld/api/email/1 <span class="se">\</span>
 </span></code></pre>
 <p>This endpoint updates a specific Email.</p>
 <h3 id='http-request-9'>HTTP Request</h3>
-<p><code>PUT http://api.closum.tld/api/email/&lt;ID&gt;</code></p>
+<p><code>PUT https://api.closum.com/api/email/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -837,7 +892,7 @@ http://api.closum.tld/api/email/1 <span class="se">\</span>
 </tr>
 </tbody></table>
 <h2 id='list-all-phones'>List All Phones</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-http://api.closum.tld/api/phone <span class="se">\</span>
+https://api.closum.com/api/phone <span class="se">\</span>
 -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
 -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
@@ -872,10 +927,10 @@ http://api.closum.tld/api/phone <span class="se">\</span>
 </span></code></pre>
 <p>This endpoint retrieves all phones associated with your account.</p>
 <h3 id='http-request-10'>HTTP Request</h3>
-<p><code>GET http://api.closum.tld/api/phone</code></p>
+<p><code>GET https://api.closum.com/api/phone</code></p>
 <h2 id='create-a-new-phone'>Create a New Phone</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 curl -X POST <span class="se">\</span>
-http://api.closum.tld/api/phone <span class="se">\</span>
+https://api.closum.com/api/phone <span class="se">\</span>
 -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
 -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
@@ -897,7 +952,7 @@ http://api.closum.tld/api/phone <span class="se">\</span>
 </span></code></pre>
 <p>This endpoint allows you to add a new Phone.</p>
 <h3 id='http-request-11'>HTTP Request</h3>
-<p><code>POST http://api.closum.tld/api/phone</code></p>
+<p><code>POST https://api.closum.com/api/phone</code></p>
 <h3 id='request-body-5'>Request body</h3>
 <p>Body should be formated in (absolutely) correct JSON format</p>
 
@@ -917,7 +972,7 @@ http://api.closum.tld/api/phone <span class="se">\</span>
 </tr>
 </tbody></table>
 <h2 id='retrieve-a-phone'>Retrieve a Phone</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-http://api.closum.tld/api/phone/1 <span class="se">\</span>
+https://api.closum.com/api/phone/1 <span class="se">\</span>
 -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
 -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
@@ -939,7 +994,7 @@ http://api.closum.tld/api/phone/1 <span class="se">\</span>
 </span></code></pre>
 <p>This endpoint retrieves a specific Phone.</p>
 <h3 id='http-request-12'>HTTP Request</h3>
-<p><code>GET http://api.closum.tld/api/phone/&lt;ID&gt;</code></p>
+<p><code>GET https://api.closum.com/api/phone/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -953,7 +1008,7 @@ http://api.closum.tld/api/phone/1 <span class="se">\</span>
 </tr>
 </tbody></table>
 <h2 id='update-a-phone'>Update a Phone</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-http://api.closum.tld/api/phone/1 <span class="se">\</span>
+https://api.closum.com/api/phone/1 <span class="se">\</span>
 -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
 -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
@@ -974,7 +1029,7 @@ http://api.closum.tld/api/phone/1 <span class="se">\</span>
 </span></code></pre>
 <p>This endpoint updates a specific Phone.</p>
 <h3 id='http-request-13'>HTTP Request</h3>
-<p><code>PUT http://api.closum.tld/api/phone/&lt;ID&gt;</code></p>
+<p><code>PUT https://api.closum.com/api/phone/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
 <tr>
