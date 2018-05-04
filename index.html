@@ -332,10 +332,12 @@
 curl <span class="s2">"https://api.closum.com/api/token"</span>
 -H <span class="s2">"Accept: application/json"</span>
 -H <span class="s2">"Content-Type: application/json"</span>
--X POST -d <span class="s1">'{"email":"email@closum.com","password":"yourpassword"}'</span>
+-X POST -d <span class="s1">'{"api_username":"your-closum-api-username","api_pw":"your-closum-api-pw"}'</span>
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>email@closum.com</code> with your Closum user email and <code>yourpassword</code> with the corresponding password.</p>
+<p>Make sure to replace <code>your-closum-api-username</code> with your Closum personal api_username and <code>your-closum-api-pw</code> with the corresponding personal api_pw.</p>
+
+<p>You can access and request <code>your-closum-api-username</code> and <code>your-closum-api-pw</code> inside <a href="https://www.closum.com/user/profile">your personal account detail on Closum</a>.</p>
 
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
