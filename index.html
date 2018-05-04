@@ -329,24 +329,33 @@
 <p>To request your Bearer token, use this code:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"https://api.closum.com/api/token"</span>
--H <span class="s2">"Accept: application/json"</span>
--H <span class="s2">"Content-Type: application/json"</span>
--X POST -d <span class="s1">'{"email":"email@closum.com","password":"yourpassword"}'</span>
+curl -X POST <span class="se">\</span>
+  https://api.closum.com/api/token <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "api_username":"your-closum-api-username",
+    "api_pw":"your-closum-api-pw"
+   }'</span>
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>email@closum.com</code> with your Closum user email and <code>yourpassword</code> with the corresponding password.</p>
+<p>Make sure to replace <code>your-closum-api-username</code> with your Closum personal api_username and <code>your-closum-api-pw</code> with the corresponding personal api_pw.</p>
+
+<p>You can access and request <code>your-closum-api-username</code> and <code>your-closum-api-pw</code> inside <a href="https://www.closum.com/user/profile">your personal account detail on Closum</a>.</p>
 
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.q2chPMiKRzwrO3v48fi90HyJPHDLOXtwEKr7EcU3GPk"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6MTUyNjA1OTI0M30.kwFyE1ipf78f6BJafnj0ED3m4wcYWAM70B0t065jUd0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">604800</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expiration_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-11T17:20:43+00:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Closum uses Bearer Tokens to allow access to the API.</p>
+<p>Closum uses Bearer Tokens to allow access to the API. Those are set with a lifetime as set on the field <code>&quot;expires_in&quot;</code> and you should refresh your Bearer Tokens within the returned <code>&quot;expiration_date&quot;</code>.</p>
 
 <p>Closum expects for the Bearer Token to be included in all API requests to the server in a header that looks like the following:</p>
 
