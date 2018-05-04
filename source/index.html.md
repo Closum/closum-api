@@ -27,26 +27,35 @@ We have language bindings in Shell, Ruby, and Python! You can view code examples
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "https://api.closum.com/api/token"
--H "Accept: application/json"
--H "Content-Type: application/json"
--X POST -d '{"email":"email@closum.com","password":"yourpassword"}'
+curl -X POST \
+  https://api.closum.com/api/token \
+  -H 'Accept: application/json' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"api_username":"your-closum-api-username",
+	"api_pw":"your-closum-api-pw"
+   }'
 ```
 
-> Make sure to replace `email@closum.com` with your Closum user email and `yourpassword` with the corresponding password.
+> Make sure to replace `your-closum-api-username` with your Closum personal api_username and `your-closum-api-pw` with the corresponding personal api_pw.
+
+> You can access and request `your-closum-api-username` and `your-closum-api-pw` inside [your personal account detail on Closum](https://www.closum.com/user/profile).
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-      "success": true,
-      "data": {
-            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.q2chPMiKRzwrO3v48fi90HyJPHDLOXtwEKr7EcU3GPk"
-      }
+    "success": true,
+    "data": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6MTUyNjA1OTI0M30.kwFyE1ipf78f6BJafnj0ED3m4wcYWAM70B0t065jUd0",
+        "expires_in": 604800,
+        "expiration_date": "2018-05-11T17:20:43+00:00"
+    }
 }
 ```
 
-Closum uses Bearer Tokens to allow access to the API.
+Closum uses Bearer Tokens to allow access to the API. Those are set with a lifetime as set on the field `"expires_in"` and you should refresh your Bearer Tokens within the returned `"expiration_date"`.
 
 Closum expects for the Bearer Token to be included in all API requests to the server in a header that looks like the following:
 
