@@ -1124,9 +1124,9 @@ https://api.closum.com/api/phone/1 <span class="se">\</span>
 </tr>
 <tr>
 <td>enviroment</td>
-<td>boolean</td>
-<td>Yes</td>
-<td>The phone validation <strong>status</strong></td>
+<td>string</td>
+<td>False</td>
+<td>A <strong>JSON</strong> <a href="#email-properties">enviroment object</a></td>
 </tr>
 <tr>
 <td>creation_date</td>
@@ -1145,51 +1145,54 @@ https://api.closum.com/api/phone/1 <span class="se">\</span>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>integer</td>
-<td>True</td>
-<td>The <strong>id</strong> relative to lead opt in</td>
-</tr>
-<tr>
-<td>lead_id</td>
-<td>integer</td>
-<td>True</td>
-<td>The <strong>lead_id</strong> which the lead opt in belong to</td>
-</tr>
-<tr>
-<td>sms</td>
-<td>boolean</td>
+<td>CONTENT_LENGTH</td>
+<td>string</td>
 <td>False</td>
-<td>Consent <strong>status</strong> for <strong>SMS</strong> marketing</td>
+<td>The <strong>Content-Length</strong> entity header is indicating the size of the entity-body, in bytes, sent to the recipient.</td>
 </tr>
 <tr>
-<td>email</td>
-<td>boolean</td>
+<td>HTTP_USER_AGENT</td>
+<td>string</td>
 <td>False</td>
-<td>Consent <strong>status</strong> for <strong>EMAIL</strong> marketing</td>
+<td>The <strong>User-Agent</strong> containing network protocol peers to identify the application type, operating system, software vendor or software version of the requesting software user agent.</td>
 </tr>
 <tr>
-<td>enviroment</td>
-<td>boolean</td>
-<td>Yes</td>
-<td>The phone validation <strong>status</strong></td>
+<td>HTTP_REFERER</td>
+<td>string</td>
+<td>False</td>
+<td>The <strong>Referer</strong> request header contains the address of the previous web page from which a link to the currently requested page was followed.</td>
 </tr>
 <tr>
-<td>creation_date</td>
-<td>date-time</td>
-<td>True</td>
-<td>The <strong>creation_date</strong> of the record</td>
+<td>HTTP_ACCEPT_LANGUAGE</td>
+<td>string</td>
+<td>False</td>
+<td>The <strong>Accept-Language</strong> request HTTP header advertises which languages the client is able to understand, and which locale variant is preferred.</td>
+</tr>
+<tr>
+<td>REMOTE_ADDR</td>
+<td>string</td>
+<td>False</td>
+<td>The <strong>IP address</strong> of the remote host.</td>
+</tr>
+<tr>
+<td>REMOTE_PORT</td>
+<td>string</td>
+<td>False</td>
+<td>The <strong>Port</strong> being used on the user&#39;s machine to communicate with the web server.</td>
+</tr>
+<tr>
+<td>REQUEST_URI</td>
+<td>string</td>
+<td>False</td>
+<td>The <strong>URI</strong> which was given in order to access this page.</td>
+</tr>
+<tr>
+<td>REQUEST_TIME_FLOAT</td>
+<td>string</td>
+<td>False</td>
+<td>The <strong>timestamp</strong> of the start of the request, with microsecond precision.</td>
 </tr>
 </tbody></table>
-
-<p>&#39;CONTENT_LENGTH&#39; =&gt; &#39;Content-Length&#39;,
-&#39;HTTP_USER_AGENT&#39; =&gt; &#39;User-Agent&#39;,
-&#39;HTTP_REFERER&#39; =&gt; &#39;Referer&#39;,
-&#39;HTTP_ACCEPT_LANGUAGE&#39; =&gt; &#39;Accept-Language&#39;,
-&#39;REMOTE_ADDR&#39; =&gt; &#39;Remote Address&#39;,
-&#39;REMOTE_PORT&#39; =&gt; &#39;Remote Port&#39;,
-&#39;REQUEST_URI&#39; =&gt; &#39;Remote URI&#39;,
-&#39;REQUEST_TIME_FLOAT&#39; =&gt; &#39;Request Time Float&#39;</p>
 <h1 id='errors'>Errors</h1>
 <p>The Closum API uses the following error codes:</p>
 
