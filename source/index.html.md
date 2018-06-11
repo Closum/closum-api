@@ -85,10 +85,11 @@ Parameter | Type | Read Only | Description
 ID | integer | True | The **id** relative to lead
 name | string | False | The **name** relative to lead
 city_id | integer | False | The **city_id** relative to lead
-custom_data | string | false | A **JSON** formated string containing extra fields
+custom_data | string | False | A **JSON** formated string containing extra fields
 creation_date | date-time | True | The **creation_date** of the record
 phone | object | False | The **phone** object associated to lead
 email | object | False | The **email** object associated to lead
+lead_opt_in | object | False | The **lead_opt_in** object associated to lead
 
 ## List All Leads
 
@@ -183,7 +184,8 @@ Parameter | Description
 --------- | -----------
 name | The **name** of lead.
 email | A **JSON** [email object](#email-properties)
-phone | A **JSON** phone object
+phone | A **JSON** [phone object](#phones).
+lead_opt_in | A **JSON** [lead_opt_in object](#lead_opt_in)
 
 ## Retrieve a Lead
 
@@ -232,7 +234,7 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the Lead to retrieve
 
-## Update a Lead
+<!-- ## Update a Lead
 
 ```shell
 curl -X PUT \
@@ -285,7 +287,7 @@ Parameter | Description
 --------- | -----------
 name | The **name** of lead.
 email | A **JSON** email object
-phone | A **JSON** phone object
+phone | A **JSON** phone object -->
 
 # Cities
 
@@ -686,3 +688,30 @@ Parameter | Description
 --------- | -----------
 extension | The phone **extension** associated with country
 number | The **phone** number
+
+# Lead Opt In
+
+## Lead Opt In Properties
+
+Parameter | Type | Read Only | Description
+--------- | --------- | --------- | -----------
+ID | integer | True | The **id** relative to lead opt in
+lead_id | integer | True | The **lead_id** which the lead opt in belong to
+sms | boolean | False | Consent **status** for **SMS** marketing
+email | boolean | False | Consent **status** for **EMAIL** marketing
+enviroment | string | False | A **JSON** [enviroment object](##enviroment-properties)
+creation_date | date-time | True | The **creation_date** of the record
+
+
+## Enviroment Properties
+
+Parameter | Type | Read Only | Description
+--------- | --------- | --------- | -----------
+CONTENT_LENGTH | string | False | The **Content-Length** entity header is indicating the size of the entity-body, in bytes, sent to the recipient.
+HTTP_USER_AGENT | string | False | The **User-Agent** containing network protocol peers to identify the application type, operating system, software vendor or software version of the requesting software user agent.
+HTTP_REFERER | string | False | The **Referer** request header contains the address of the previous web page from which a link to the currently requested page was followed.
+HTTP_ACCEPT_LANGUAGE | string | False | The **Accept-Language** request HTTP header advertises which languages the client is able to understand, and which locale variant is preferred.
+REMOTE_ADDR | string | False | The **IP address** of the remote host.
+REMOTE_PORT | string | False | The **Port** being used on the user's machine to communicate with the web server.
+REQUEST_URI | string | False | The **URI** which was given in order to access this page.
+REQUEST_TIME_FLOAT | string | False | The **timestamp** of the start of the request, with microsecond precision.
