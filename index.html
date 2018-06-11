@@ -305,6 +305,14 @@
                         </ul>
                   </li>
                   <li>
+                        <a href="#lead-opt-in" class="toc-h1 toc-link" data-title="lead-opt-in">Lead Opt In</a>
+                        <ul class="toc-list-h2">
+                              <li>
+                                    <a href="#lead-opt-in-properties" class="toc-h2 toc-link" data-title="lead-opt-in-properties">Lead Opt In Properties</a>
+                              </li>
+                        </ul>
+                  </li>
+                  <li>
                         <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
                   </li>
             </div>
@@ -422,7 +430,7 @@ You must replace <code>your.bearer.token</code> with your personal Bearer Token.
 <tr>
 <td>custom_data</td>
 <td>string</td>
-<td>false</td>
+<td>False</td>
 <td>A <strong>JSON</strong> formated string containing extra fields</td>
 </tr>
 <tr>
@@ -442,6 +450,12 @@ You must replace <code>your.bearer.token</code> with your personal Bearer Token.
 <td>object</td>
 <td>False</td>
 <td>The <strong>email</strong> object associated to lead</td>
+</tr>
+<tr>
+<td>lead_opt_in</td>
+<td>object</td>
+<td>False</td>
+<td>The <strong>lead_opt_in</strong> object associated to lead</td>
 </tr>
 </tbody></table>
 <h2 id='list-all-leads'>List All Leads</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
@@ -532,7 +546,11 @@ https://api.closum.com/api/lead <span class="se">\</span>
 </tr>
 <tr>
 <td>phone</td>
-<td>A <strong>JSON</strong> phone object</td>
+<td>A <strong>JSON</strong> <a href="#phones">phone object</a>.</td>
+</tr>
+<tr>
+<td>lead_opt_in</td>
+<td>A <strong>JSON</strong> <a href="#lead_opt_in">lead_opt_in object</a></td>
 </tr>
 </tbody></table>
 <h2 id='retrieve-a-lead'>Retrieve a Lead</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
@@ -1066,6 +1084,46 @@ https://api.closum.com/api/phone/1 <span class="se">\</span>
 <tr>
 <td>number</td>
 <td>The <strong>phone</strong> number</td>
+</tr>
+</tbody></table>
+<h1 id='lead-opt-in'>Lead Opt In</h1><h2 id='lead-opt-in-properties'>Lead Opt In Properties</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Read Only</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>integer</td>
+<td>True</td>
+<td>The <strong>id</strong> relative to phone</td>
+</tr>
+<tr>
+<td>extension</td>
+<td>string</td>
+<td>False</td>
+<td>The phone <strong>extension</strong> associated with country</td>
+</tr>
+<tr>
+<td>number</td>
+<td>string</td>
+<td>False</td>
+<td>The <strong>phone</strong> number</td>
+</tr>
+<tr>
+<td>is_valid</td>
+<td>boolean</td>
+<td>Yes</td>
+<td>The phone validation <strong>status</strong></td>
+</tr>
+<tr>
+<td>date_add</td>
+<td>date-time</td>
+<td>Yes</td>
+<td>The <strong>register_date</strong> of the record</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
