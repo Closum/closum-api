@@ -310,6 +310,9 @@
                               <li>
                                     <a href="#lead-opt-in-properties" class="toc-h2 toc-link" data-title="lead-opt-in-properties">Lead Opt In Properties</a>
                               </li>
+                              <li>
+                                    <a href="#enviroment-properties" class="toc-h2 toc-link" data-title="enviroment-properties">Enviroment Properties</a>
+                              </li>
                         </ul>
                   </li>
                   <li>
@@ -1099,33 +1102,94 @@ https://api.closum.com/api/phone/1 <span class="se">\</span>
 <td>ID</td>
 <td>integer</td>
 <td>True</td>
-<td>The <strong>id</strong> relative to phone</td>
+<td>The <strong>id</strong> relative to lead opt in</td>
 </tr>
 <tr>
-<td>extension</td>
-<td>string</td>
+<td>lead_id</td>
+<td>integer</td>
+<td>True</td>
+<td>The <strong>lead_id</strong> which the lead opt in belong to</td>
+</tr>
+<tr>
+<td>sms</td>
+<td>boolean</td>
 <td>False</td>
-<td>The phone <strong>extension</strong> associated with country</td>
+<td>Consent <strong>status</strong> for <strong>SMS</strong> marketing</td>
 </tr>
 <tr>
-<td>number</td>
-<td>string</td>
+<td>email</td>
+<td>boolean</td>
 <td>False</td>
-<td>The <strong>phone</strong> number</td>
+<td>Consent <strong>status</strong> for <strong>EMAIL</strong> marketing</td>
 </tr>
 <tr>
-<td>is_valid</td>
+<td>enviroment</td>
 <td>boolean</td>
 <td>Yes</td>
 <td>The phone validation <strong>status</strong></td>
 </tr>
 <tr>
-<td>date_add</td>
+<td>creation_date</td>
 <td>date-time</td>
-<td>Yes</td>
-<td>The <strong>register_date</strong> of the record</td>
+<td>True</td>
+<td>The <strong>creation_date</strong> of the record</td>
 </tr>
 </tbody></table>
+<h2 id='enviroment-properties'>Enviroment Properties</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Read Only</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>integer</td>
+<td>True</td>
+<td>The <strong>id</strong> relative to lead opt in</td>
+</tr>
+<tr>
+<td>lead_id</td>
+<td>integer</td>
+<td>True</td>
+<td>The <strong>lead_id</strong> which the lead opt in belong to</td>
+</tr>
+<tr>
+<td>sms</td>
+<td>boolean</td>
+<td>False</td>
+<td>Consent <strong>status</strong> for <strong>SMS</strong> marketing</td>
+</tr>
+<tr>
+<td>email</td>
+<td>boolean</td>
+<td>False</td>
+<td>Consent <strong>status</strong> for <strong>EMAIL</strong> marketing</td>
+</tr>
+<tr>
+<td>enviroment</td>
+<td>boolean</td>
+<td>Yes</td>
+<td>The phone validation <strong>status</strong></td>
+</tr>
+<tr>
+<td>creation_date</td>
+<td>date-time</td>
+<td>True</td>
+<td>The <strong>creation_date</strong> of the record</td>
+</tr>
+</tbody></table>
+
+<p>&#39;CONTENT_LENGTH&#39; =&gt; &#39;Content-Length&#39;,
+&#39;HTTP_USER_AGENT&#39; =&gt; &#39;User-Agent&#39;,
+&#39;HTTP_REFERER&#39; =&gt; &#39;Referer&#39;,
+&#39;HTTP_ACCEPT_LANGUAGE&#39; =&gt; &#39;Accept-Language&#39;,
+&#39;REMOTE_ADDR&#39; =&gt; &#39;Remote Address&#39;,
+&#39;REMOTE_PORT&#39; =&gt; &#39;Remote Port&#39;,
+&#39;REQUEST_URI&#39; =&gt; &#39;Remote URI&#39;,
+&#39;REQUEST_TIME_FLOAT&#39; =&gt; &#39;Request Time Float&#39;</p>
 <h1 id='errors'>Errors</h1>
 <p>The Closum API uses the following error codes:</p>
 
