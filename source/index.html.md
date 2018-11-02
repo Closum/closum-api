@@ -186,6 +186,8 @@ name | The **name** of lead.
 email | A **JSON** [email object](#email-properties)
 phone | A **JSON** [phone object](#phones).
 lead_opt_in | A **JSON** [lead_opt_in object](#lead_opt_in)
+city_id | integer | False | The **city_id** relative to lead
+custom_data | string | False | A **JSON** formated string containing extra fields
 
 ## Retrieve a Lead
 
@@ -331,7 +333,7 @@ This endpoint retrieves all leads associated with your account.
 
 ### HTTP Request
 
-`GET https://api.closum.com/api/lead`
+`GET https://api.closum.com/api/city`
 
 # Emails
 
