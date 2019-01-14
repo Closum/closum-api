@@ -691,6 +691,177 @@ Parameter | Description
 extension | The phone **extension** associated with country
 number | The **phone** number
 
+# Contact Types
+
+## Contact Types Properties
+
+Parameter | Type | Read Only | Description
+--------- | --------- | --------- | -----------
+ID | integer | True | The **id** relative to phone
+label | string | False | The phone **extension** associated with country
+creation_date | date-time | Yes | The **creation date** of the record
+
+## List All Contact Types
+
+```shell
+curl -X GET \
+https://api.closum.com/api/contact-type \
+-H 'Accept: application/json' \
+-H 'Authorization: Bearer your.bearer.token' \
+-H 'Cache-Control: no-cache' \
+-H 'Content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+      "success": true,
+      "data": [
+            {
+                  "id": 1,
+                  "label": "My Sample Contact Type",
+                  "creation_date": "2018-01-01T10:00:00+00:00"
+            },
+            {
+                  ...
+            }
+      ],
+      "pagination": {
+            "page_count": 10,
+            "current_page": 1,
+            "has_next_page": true,
+            "has_prev_page": false,
+            "count": 250,
+            "limit": null
+      }
+}
+```
+
+This endpoint retrieves all contact types created by your company.
+
+### HTTP Request
+
+`GET https://api.closum.com/api/contact-type`
+
+
+## Create a Contact Type
+
+```shell
+curl -X POST \
+curl -X POST \
+https://api.closum.com/api/contact-type \
+-H 'Accept: application/json' \
+-H 'Authorization: Bearer your.bearer.token' \
+-H 'Cache-Control: no-cache' \
+-H 'Content-type: application/json' \
+-d '{
+      "label": "My Sample Contact Type"
+}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+      "success": true,
+      "data": {
+            "id": 1
+      }
+}
+```
+
+This endpoint allows you to add a new Contact Type.
+
+### HTTP Request
+
+`POST https://api.closum.com/api/contact-type`
+
+### Request body
+Body should be formated in (absolutely) correct JSON format
+
+Parameter | Description
+--------- | -----------
+label | The **label** which the contacts will be associated with
+
+## Retrieve a Contact Type
+
+```shell
+curl -X GET \
+https://api.closum.com/api/contact-type/1 \
+-H 'Accept: application/json' \
+-H 'Authorization: Bearer your.bearer.token' \
+-H 'Cache-Control: no-cache' \
+-H 'Content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+      "success": true,
+      "data": {
+            "id": 1,
+            "label": "My Sample Contact Type",
+            "date_add": "2018-01-01T10:00:00+00:00"
+      }
+}
+```
+
+This endpoint retrieves a specific Contact Type.
+
+### HTTP Request
+
+`GET https://api.closum.com/api/contact-type/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of Contact Type to retrieve
+
+## Update a Contact Type
+
+```shell
+curl -X PUT \
+https://api.closum.com/api/contact-type/1 \
+-H 'Accept: application/json' \
+-H 'Authorization: Bearer your.bearer.token' \
+-H 'Cache-Control: no-cache' \
+-H 'Content-type: application/json' \
+-d '{
+      "label": "My Sample Contact Type (Updated)"
+}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+      "success": true,
+      "data": []
+}
+```
+
+This endpoint updates a specific Contact Type.
+
+### HTTP Request
+
+`PUT https://api.closum.com/api/contact-type/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of Contact Type to update
+
+### Request body
+Body should be formated in (absolutely) correct JSON format
+
+Parameter | Description
+--------- | -----------
+label | The **label** which the contacts will be associated with
+
 # Lead Opt In
 
 ## Lead Opt In Properties
