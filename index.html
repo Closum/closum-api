@@ -305,6 +305,26 @@
                         </ul>
                   </li>
                   <li>
+                        <a href="#contact-types" class="toc-h1 toc-link" data-title="contact-types">Contact Types</a>
+                        <ul class="toc-list-h2">
+                              <li>
+                                    <a href="#contact-types-properties" class="toc-h2 toc-link" data-title="contact-types-properties">Contact Types Properties</a>
+                              </li>
+                              <li>
+                                    <a href="#list-all-contact-types" class="toc-h2 toc-link" data-title="list-all-contact-types">List All Contact Types</a>
+                              </li>
+                              <li>
+                                    <a href="#create-a-contact-type" class="toc-h2 toc-link" data-title="create-a-contact-type">Create a Contact Type</a>
+                              </li>
+                              <li>
+                                    <a href="#retrieve-a-contact-type" class="toc-h2 toc-link" data-title="retrieve-a-contact-type">Retrieve a Contact Type</a>
+                              </li>
+                              <li>
+                                    <a href="#update-a-contact-type" class="toc-h2 toc-link" data-title="update-a-contact-type">Update a Contact Type</a>
+                              </li>
+                        </ul>
+                  </li>
+                  <li>
                         <a href="#lead-opt-in" class="toc-h1 toc-link" data-title="lead-opt-in">Lead Opt In</a>
                         <ul class="toc-list-h2">
                               <li>
@@ -1095,6 +1115,188 @@ https://api.closum.com/api/phone/1 <span class="se">\</span>
 <tr>
 <td>number</td>
 <td>The <strong>phone</strong> number</td>
+</tr>
+</tbody></table>
+<h1 id='contact-types'>Contact Types</h1><h2 id='contact-types-properties'>Contact Types Properties</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Read Only</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>integer</td>
+<td>True</td>
+<td>The <strong>id</strong> relative to phone</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>False</td>
+<td>The phone <strong>extension</strong> associated with country</td>
+</tr>
+<tr>
+<td>creation_date</td>
+<td>date-time</td>
+<td>Yes</td>
+<td>The <strong>creation date</strong> of the record</td>
+</tr>
+</tbody></table>
+<h2 id='list-all-contact-types'>List All Contact Types</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+https://api.closum.com/api/contact-type <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Sample Contact Type"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"creation_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T10:00:00+00:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                  </span><span class="err">...</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_prev_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all contact types created by your company.</p>
+<h3 id='http-request-13'>HTTP Request</h3>
+<p><code>GET https://api.closum.com/api/contact-type</code></p>
+<h2 id='create-a-contact-type'>Create a Contact Type</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+curl -X POST <span class="se">\</span>
+https://api.closum.com/api/contact-type <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+-d <span class="s1">'{
+      "label": "My Sample Contact Type"
+}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to add a new Contact Type.</p>
+<h3 id='http-request-14'>HTTP Request</h3>
+<p><code>POST https://api.closum.com/api/contact-type</code></p>
+<h3 id='request-body-6'>Request body</h3>
+<p>Body should be formated in (absolutely) correct JSON format</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>label</td>
+<td>The <strong>label</strong> which the contacts will be associated with</td>
+</tr>
+</tbody></table>
+<h2 id='retrieve-a-contact-type'>Retrieve a Contact Type</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+https://api.closum.com/api/contact-type/1 <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Sample Contact Type"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date_add"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T10:00:00+00:00"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific Contact Type.</p>
+<h3 id='http-request-15'>HTTP Request</h3>
+<p><code>GET https://api.closum.com/api/contact-type/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-6'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of Contact Type to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-contact-type'>Update a Contact Type</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+https://api.closum.com/api/contact-type/1 <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+-d <span class="s1">'{
+      "label": "My Sample Contact Type (Updated)"
+}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a specific Contact Type.</p>
+<h3 id='http-request-16'>HTTP Request</h3>
+<p><code>PUT https://api.closum.com/api/contact-type/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-7'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of Contact Type to update</td>
+</tr>
+</tbody></table>
+<h3 id='request-body-7'>Request body</h3>
+<p>Body should be formated in (absolutely) correct JSON format</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>label</td>
+<td>The <strong>label</strong> which the contacts will be associated with</td>
 </tr>
 </tbody></table>
 <h1 id='lead-opt-in'>Lead Opt In</h1><h2 id='lead-opt-in-properties'>Lead Opt In Properties</h2>
