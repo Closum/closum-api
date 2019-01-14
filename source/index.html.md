@@ -698,7 +698,7 @@ number | The **phone** number
 Parameter | Type | Read Only | Description
 --------- | --------- | --------- | -----------
 ID | integer | True | The **id** relative to phone
-label | string | False | The phone **extension** associated with country
+label | string | False | The **label** which the contacts will be associated with
 creation_date | date-time | Yes | The **creation date** of the record
 
 ## List All Contact Types
