@@ -257,6 +257,23 @@
                         </ul>
                   </li>
                   <li>
+                        <a href="#unqualified-lead-contact" class="toc-h1 toc-link" data-title="unqualified-lead-contact">Unqualified Lead (Contact)</a>
+                        <ul class="toc-list-h2">
+                              <li>
+                                    <a href="#unqualified-lead-properties" class="toc-h2 toc-link" data-title="unqualified-lead-properties">Unqualified Lead Properties</a>
+                              </li>
+                              <li>
+                                    <a href="#list-all-unqualified-leads" class="toc-h2 toc-link" data-title="list-all-unqualified-leads">List All Unqualified Leads</a>
+                              </li>
+                              <li>
+                                    <a href="#create-a-new-unqualified-lead" class="toc-h2 toc-link" data-title="create-a-new-unqualified-lead">Create a New Unqualified Lead</a>
+                              </li>
+                              <li>
+                                    <a href="#retrieve-an-uqualified-lead" class="toc-h2 toc-link" data-title="retrieve-an-uqualified-lead">Retrieve an Uqualified Lead</a>
+                              </li>
+                        </ul>
+                  </li>
+                  <li>
                         <a href="#cities" class="toc-h1 toc-link" data-title="cities">Cities</a>
                         <ul class="toc-list-h2">
                               <li>
@@ -532,9 +549,23 @@ https://api.closum.com/api/lead <span class="se">\</span>
 -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -d <span class="s1">'{
-      "name": "Sylvia L. Hook",
-      "email" : {"email" : "sylvialhook@closum.com"},
-      "phone" : {"extension" : "001","number" : "517-388-1452"}
+    "name": "Sylvia L. Hook",
+    "email" : {"email" : "sylvialhook@closum.com"},
+    "phone" : {"extension" : "001","number" : "517-388-1452"},
+    "lead_opt_in" : {
+        "sms" : true,
+        "email" : true,
+        "enviroment" : {
+            "CONTENT_LENGTH" : "222",
+            "HTTP_USER_AGENT" : "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0",
+            "HTTP_REFERER" : "https://www.google.com",
+            "HTTP_ACCEPT_LANGUAGE" : "pt-PT,pt;q=0.8,en;q=0.5,en-US;q=0.3",
+            "REMOTE_ADDR" : "192.168.1.1",
+            "REMOTE_PORT" : "1364",
+            "REQUEST_URI" : "/",
+            "REQUEST_TIME_FLOAT" : "1547548827.898"
+        }
+    }
 }'</span>
 </code></pre>
 <blockquote>
@@ -573,7 +604,7 @@ https://api.closum.com/api/lead <span class="se">\</span>
 </tr>
 <tr>
 <td>lead_opt_in</td>
-<td>A <strong>JSON</strong> <a href="#lead_opt_in">lead_opt_in object</a></td>
+<td>A <strong>JSON</strong> <a href="#lead-opt-in-properties">lead_opt_in object</a></td>
 </tr>
 <tr>
 <td>city_id</td>
@@ -684,6 +715,207 @@ Parameter | Description
 name | The **name** of lead.
 email | A **JSON** email object
 phone | A **JSON** phone object -->
+<h1 id='unqualified-lead-contact'>Unqualified Lead (Contact)</h1><h2 id='unqualified-lead-properties'>Unqualified Lead Properties</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Read Only</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>integer</td>
+<td>True</td>
+<td>The <strong>id</strong> relative to unqualified lead</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>False</td>
+<td>The <strong>name</strong> relative to unqualified lead</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>object</td>
+<td>False</td>
+<td>The <strong>phone</strong> object associated to unqualified lead</td>
+</tr>
+<tr>
+<td>email</td>
+<td>object</td>
+<td>False</td>
+<td>The <strong>email</strong> object associated to unqualified lead</td>
+</tr>
+<tr>
+<td>contact_type_id</td>
+<td>integer</td>
+<td>False</td>
+<td>The <strong>contact_type_id</strong> relative to unqualified lead</td>
+</tr>
+<tr>
+<td>unqualified_lead_opt_in</td>
+<td>object</td>
+<td>False</td>
+<td>The <strong>unqualified_lead_opt_in</strong> object associated to unqualified lead</td>
+</tr>
+</tbody></table>
+<h2 id='list-all-unqualified-leads'>List All Unqualified Leads</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+https://api.closum.com/api/unqualified-lead <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sylvia L. Hook"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"contact_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"city_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"creation_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T10:00:00+00:00"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"517-388-1452"</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sylvialhook@closum.com"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                  </span><span class="err">...</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_prev_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">25025</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all unqualified leads associated with your account.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.closum.com/api/unqualified-lead</code></p>
+<h2 id='create-a-new-unqualified-lead'>Create a New Unqualified Lead</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+https://api.closum.com/api/unqualified-lead <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-d <span class="s1">'{
+    "name": "Sylvia L. Hook",
+    "email" : {"email" : "sylvialhook@closum.com"},
+    "phone" : {"extension" : "001","number" : "517-388-1452"},
+    "contact_type_id": "1",
+    "unqualified_lead_opt_in" : {
+        "sms" : true,
+        "email" : true,
+        "enviroment" : {
+            "CONTENT_LENGTH" : "222",
+            "HTTP_USER_AGENT" : "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0",
+            "HTTP_REFERER" : "https://www.google.com",
+            "HTTP_ACCEPT_LANGUAGE" : "pt-PT,pt;q=0.8,en;q=0.5,en-US;q=0.3",
+            "REMOTE_ADDR" : "192.168.1.1",
+            "REMOTE_PORT" : "1364",
+            "REQUEST_URI" : "/",
+            "REQUEST_TIME_FLOAT" : "1547548827.898"
+        }
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to add a new Unqualified Lead.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST https://api.closum.com/api/unqualified-lead</code></p>
+<h3 id='request-body-2'>Request body</h3>
+<p>Body should be formated in (absolutely) correct JSON format</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>The <strong>name</strong> of unqualified lead.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>A <strong>JSON</strong> <a href="#email-properties">email object</a></td>
+</tr>
+<tr>
+<td>phone</td>
+<td>A <strong>JSON</strong> <a href="#phones">phone object</a>.</td>
+</tr>
+<tr>
+<td>unqualified_lead_opt_in</td>
+<td>A <strong>JSON</strong> <a href="#unqualified-lead-opt-in-properties">unqualified_lead_opt_in object</a></td>
+</tr>
+<tr>
+<td>contact_type_id</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+<h2 id='retrieve-an-uqualified-lead'>Retrieve an Uqualified Lead</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+https://api.closum.com/api/unqualified-lead/1 <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sylvia L. Hook"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contact_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"creation_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T12:56:19+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"916912468"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sylvialhook@closum.com"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific Lead.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.closum.com/api/lead/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the Lead to retrieve</td>
+</tr>
+</tbody></table>
 <h1 id='cities'>Cities</h1><h2 id='list-all-cities'>List All Cities</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
 https://api.closum.com/api/city <span class="se">\</span>
 -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
@@ -716,7 +948,7 @@ https://api.closum.com/api/city <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all leads associated with your account.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://api.closum.com/api/city</code></p>
 <h1 id='emails'>Emails</h1><h2 id='email-properties'>Email Properties</h2>
 <table><thead>
@@ -786,7 +1018,7 @@ https://api.closum.com/api/email <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all emails associated with your account.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET https://api.closum.com/api/email</code></p>
 <h2 id='create-a-new-email'>Create a New Email</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 https://api.closum.com/api/email <span class="se">\</span>
@@ -809,9 +1041,9 @@ https://api.closum.com/api/email <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint allows you to add a new Email.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>POST https://api.closum.com/api/email</code></p>
-<h3 id='request-body-2'>Request body</h3>
+<h3 id='request-body-3'>Request body</h3>
 <p>Body should be formated in (absolutely) correct JSON format</p>
 
 <table><thead>
@@ -846,9 +1078,9 @@ https://api.closum.com/api/email/1 <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific Email.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET https://api.closum.com/api/email/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -880,9 +1112,9 @@ https://api.closum.com/api/email/1 <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint updates a specific Email.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>PUT https://api.closum.com/api/email/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -894,7 +1126,7 @@ https://api.closum.com/api/email/1 <span class="se">\</span>
 <td>The ID of the Email to update</td>
 </tr>
 </tbody></table>
-<h3 id='request-body-3'>Request body</h3>
+<h3 id='request-body-4'>Request body</h3>
 <p>Body should be formated in (absolutely) correct JSON format</p>
 
 <table><thead>
@@ -983,7 +1215,7 @@ https://api.closum.com/api/phone <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all phones associated with your account.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET https://api.closum.com/api/phone</code></p>
 <h2 id='create-a-new-phone'>Create a New Phone</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 curl -X POST <span class="se">\</span>
@@ -1008,9 +1240,9 @@ https://api.closum.com/api/phone <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint allows you to add a new Phone.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>POST https://api.closum.com/api/phone</code></p>
-<h3 id='request-body-4'>Request body</h3>
+<h3 id='request-body-5'>Request body</h3>
 <p>Body should be formated in (absolutely) correct JSON format</p>
 
 <table><thead>
@@ -1050,9 +1282,9 @@ https://api.closum.com/api/phone/1 <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific Phone.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>GET https://api.closum.com/api/phone/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-4'>URL Parameters</h3>
+<h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1085,9 +1317,9 @@ https://api.closum.com/api/phone/1 <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint updates a specific Phone.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-15'>HTTP Request</h3>
 <p><code>PUT https://api.closum.com/api/phone/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-5'>URL Parameters</h3>
+<h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1099,7 +1331,7 @@ https://api.closum.com/api/phone/1 <span class="se">\</span>
 <td>The ID of Phone to update</td>
 </tr>
 </tbody></table>
-<h3 id='request-body-5'>Request body</h3>
+<h3 id='request-body-6'>Request body</h3>
 <p>Body should be formated in (absolutely) correct JSON format</p>
 
 <table><thead>
@@ -1178,7 +1410,7 @@ https://api.closum.com/api/contact-type <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all contact types created by your company.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-16'>HTTP Request</h3>
 <p><code>GET https://api.closum.com/api/contact-type</code></p>
 <h2 id='create-a-contact-type'>Create a Contact Type</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 curl -X POST <span class="se">\</span>
@@ -1202,9 +1434,9 @@ https://api.closum.com/api/contact-type <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint allows you to add a new Contact Type.</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-17'>HTTP Request</h3>
 <p><code>POST https://api.closum.com/api/contact-type</code></p>
-<h3 id='request-body-6'>Request body</h3>
+<h3 id='request-body-7'>Request body</h3>
 <p>Body should be formated in (absolutely) correct JSON format</p>
 
 <table><thead>
@@ -1238,9 +1470,9 @@ https://api.closum.com/api/contact-type/1 <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific Contact Type.</p>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-18'>HTTP Request</h3>
 <p><code>GET https://api.closum.com/api/contact-type/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-6'>URL Parameters</h3>
+<h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1271,9 +1503,9 @@ https://api.closum.com/api/contact-type/1 <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint updates a specific Contact Type.</p>
-<h3 id='http-request-16'>HTTP Request</h3>
+<h3 id='http-request-19'>HTTP Request</h3>
 <p><code>PUT https://api.closum.com/api/contact-type/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-7'>URL Parameters</h3>
+<h3 id='url-parameters-8'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1285,7 +1517,7 @@ https://api.closum.com/api/contact-type/1 <span class="se">\</span>
 <td>The ID of Contact Type to update</td>
 </tr>
 </tbody></table>
-<h3 id='request-body-7'>Request body</h3>
+<h3 id='request-body-8'>Request body</h3>
 <p>Body should be formated in (absolutely) correct JSON format</p>
 
 <table><thead>
@@ -1336,7 +1568,7 @@ https://api.closum.com/api/contact-type/1 <span class="se">\</span>
 <td>enviroment</td>
 <td>string</td>
 <td>False</td>
-<td>A <strong>JSON</strong> <a href="##enviroment-properties">enviroment object</a></td>
+<td>A <strong>JSON</strong> <a href="#enviroment-properties">enviroment object</a></td>
 </tr>
 <tr>
 <td>creation_date</td>
