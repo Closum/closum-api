@@ -1057,6 +1057,19 @@ email | boolean | False | Consent **status** for **EMAIL** marketing
 enviroment | string | False | A **JSON** [enviroment object](#enviroment-properties)
 creation_date | date-time | True | The **creation_date** of the record
 
+# Unqualified Lead Opt In
+
+## Unqualified Lead Opt In Properties
+
+Parameter | Type | Read Only | Description
+--------- | --------- | --------- | -----------
+ID | integer | True | The **id** relative to unqualified lead opt in
+unqualified_lead_id | integer | True | The **lead_id** which the unqualified lead opt in belong to
+sms | boolean | False | Consent **status** for **SMS** marketing
+email | boolean | False | Consent **status** for **EMAIL** marketing
+enviroment | string | False | A **JSON** [enviroment object](#enviroment-properties)
+creation_date | date-time | True | The **creation_date** of the record
+
 
 ## Enviroment Properties
 
