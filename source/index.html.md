@@ -1071,7 +1071,7 @@ enviroment | string | False | A **JSON** [enviroment object](#enviroment-propert
 creation_date | date-time | True | The **creation_date** of the record
 
 
-## Enviroment Properties
+# Enviroment Properties
 
 Parameter | Type | Read Only | Description
 --------- | --------- | --------- | -----------
