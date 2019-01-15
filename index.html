@@ -347,6 +347,14 @@
                               <li>
                                     <a href="#lead-opt-in-properties" class="toc-h2 toc-link" data-title="lead-opt-in-properties">Lead Opt In Properties</a>
                               </li>
+                        </ul>
+                  </li>
+                  <li>
+                        <a href="#unqualified-lead-opt-in" class="toc-h1 toc-link" data-title="unqualified-lead-opt-in">Unqualified Lead Opt In</a>
+                        <ul class="toc-list-h2">
+                              <li>
+                                    <a href="#unqualified-lead-opt-in-properties" class="toc-h2 toc-link" data-title="unqualified-lead-opt-in-properties">Unqualified Lead Opt In Properties</a>
+                              </li>
                               <li>
                                     <a href="#enviroment-properties" class="toc-h2 toc-link" data-title="enviroment-properties">Enviroment Properties</a>
                               </li>
@@ -1551,6 +1559,52 @@ https://api.closum.com/api/contact-type/1 <span class="se">\</span>
 <td>integer</td>
 <td>True</td>
 <td>The <strong>lead_id</strong> which the lead opt in belong to</td>
+</tr>
+<tr>
+<td>sms</td>
+<td>boolean</td>
+<td>False</td>
+<td>Consent <strong>status</strong> for <strong>SMS</strong> marketing</td>
+</tr>
+<tr>
+<td>email</td>
+<td>boolean</td>
+<td>False</td>
+<td>Consent <strong>status</strong> for <strong>EMAIL</strong> marketing</td>
+</tr>
+<tr>
+<td>enviroment</td>
+<td>string</td>
+<td>False</td>
+<td>A <strong>JSON</strong> <a href="#enviroment-properties">enviroment object</a></td>
+</tr>
+<tr>
+<td>creation_date</td>
+<td>date-time</td>
+<td>True</td>
+<td>The <strong>creation_date</strong> of the record</td>
+</tr>
+</tbody></table>
+<h1 id='unqualified-lead-opt-in'>Unqualified Lead Opt In</h1><h2 id='unqualified-lead-opt-in-properties'>Unqualified Lead Opt In Properties</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Read Only</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>integer</td>
+<td>True</td>
+<td>The <strong>id</strong> relative to unqualified lead opt in</td>
+</tr>
+<tr>
+<td>unqualified_lead_id</td>
+<td>integer</td>
+<td>True</td>
+<td>The <strong>lead_id</strong> which the unqualified lead opt in belong to</td>
 </tr>
 <tr>
 <td>sms</td>
