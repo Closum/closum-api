@@ -111,7 +111,7 @@ https://api.closum.com/api/lead \
             {
                   "id": 1,
                   "name": "Sylvia L. Hook",
-                  "city_id": 40,
+                  "contact_lifecycle_stage_id": 1,
                   "custom_data": null,
                   "creation_date": "2018-01-01T10:00:00+00:00",
                   "phone": {
@@ -200,7 +200,7 @@ name | The **name** of lead.
 email | A **JSON** [email object](#email-properties)
 phone | A **JSON** [phone object](#phones).
 lead_opt_in | A **JSON** [lead_opt_in object](#lead-opt-in-properties)
-city_id | integer | False | The **city_id** relative to lead
+contact_lifecycle_stage_id | integer | False | The **contact_lifecycle_stage** relative to lead
 custom_data | string | False | A **JSON** formated string containing extra fields
 
 ## Retrieve a Lead
@@ -223,7 +223,7 @@ https://api.closum.com/api/lead/1 \
             "id": 1,
             "name": "Sylvia L. Hook",
             "creation_date": "2015-12-30T19:31:14+00:00",
-            "city_id": 1,
+            "contact_lifecycle_stage_id": 1,
             "custom_data": null,
             "email": {
                   "id" : 1,
@@ -261,7 +261,7 @@ https://api.closum.com/api/lead/1 \
 -H 'Content-Type: application/json' \
 -d '{
       "name": "Sylvia L. Hook",
-      "city_id": 1,
+      "contact_lifecycle_stage_id": 1,
       "custom_data": null,
       "email": {
             "id" : 1,
