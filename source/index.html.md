@@ -661,6 +661,86 @@ Parameter | Description
 extension | The phone **extension** associated with country
 number | The **phone** number
 
+# Contact Lifecycle Stages
+
+## Contact Lifecycle Stages Properties
+
+Parameter | Type | Read Only | Description
+--------- | --------- | --------- | -----------
+ID | integer | True | The **id** relative to contact lifecycle stage
+label | string | True | The designation of **contact lifecycle stage**
+
+## List All Contact Lifecycle Stages
+
+```shell
+curl -X GET \
+https://api.closum.com/api/contact-lifecycle-stage/ \
+-H 'Accept: application/json' \
+-H 'Authorization: Bearer your.bearer.token' \
+-H 'Cache-Control: no-cache' \
+-H 'Content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "label": "Não Qualificado"
+        },
+        {
+            "id": 2,
+            "label": "Subscritor"
+        },
+        {
+            "id": 3,
+            "label": "Lead"
+        },
+        {
+            "id": 4,
+            "label": "Marketing Qualified Lead"
+        },
+        {
+            "id": 5,
+            "label": "Sales Qualified Lead"
+        },
+        {
+            "id": 6,
+            "label": "Oportunidade"
+        },
+        {
+            "id": 7,
+            "label": "Cliente"
+        },
+        {
+            "id": 8,
+            "label": "Evangelista"
+        },
+        {
+            "id": 9,
+            "label": "Outro"
+        }
+    ],
+    "pagination": {
+        "page_count": 1,
+        "current_page": 1,
+        "has_next_page": false,
+        "has_prev_page": false,
+        "count": 9,
+        "limit": null
+    }
+}
+```
+
+This endpoint retrieves all contact lifecycle stages.
+
+### HTTP Request
+
+`GET https://api.closum.com/api/contact-lifecycle-stage/`
+
 # Lead Opt In
 
 ## Lead Opt In Properties
