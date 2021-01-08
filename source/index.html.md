@@ -305,6 +305,139 @@ name | The **name** of lead.
 email | A **JSON** email object
 phone | A **JSON** phone object -->
 
+# Lead Audience List
+
+## Lead Audience List Properties
+
+Parameter | Type | Read Only | Description
+--------- | --------- | --------- | -----------
+ID | integer | True | The **id** relative to lead_audience_list
+lead_id | integer | False | The **lead_id** that we pretend to add to the audience_list
+audience_list_id | integer | False | The **audience_list_id** that we pretend to add the lead_id
+creation_date | date-time | Yes | The **creation_date** of the record
+
+## List All Lead Audience List
+
+```shell
+curl -X GET \
+https://api.closum.com/api/lead-audience-list \
+-H 'Accept: application/json' \
+-H 'Authorization: Bearer your.bearer.token' \
+-H 'Cache-Control: no-cache' \
+-H 'Content-Type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+      "success": true,
+      "data": [
+            {
+            "id": 289743,
+                "lead_id": 1,
+                "audience_list_id": 924,
+                "creation_date": "2020-07-20T18:15:55+00:00"
+            },
+            {
+                  ...
+            }
+      ],
+      "pagination": {
+            "page_count": 100,
+            "current_page": 1,
+            "has_next_page": true,
+            "has_prev_page": false,
+            "count": 2500,
+            "limit": null
+      }
+}
+```
+
+This endpoint retrieves all lead associated with audience_list in your company.
+
+### HTTP Request
+
+`GET https://api.closum.com/api/lead-audience-list`
+
+
+## Create a Lead Audience List
+
+```shell
+curl -X POST \
+https://api.closum.com/api/lead-audience-list \
+-H 'Accept: application/json' \
+-H 'Authorization: Bearer your.bearer.token' \
+-H 'Cache-Control: no-cache' \
+-H 'Content-Type: application/json' \
+-d '{
+    "lead_id": 1,
+    "audience_list_id": 924
+}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+      "success": true,
+      "data": {
+            "id": 1
+      }
+}
+```
+
+This endpoint allows you to add a lead to an audience_list.
+
+### HTTP Request
+
+`POST https://api.closum.com/api/lead-audience-list`
+
+### Request body
+Body should be formated in (absolutely) correct JSON format
+
+Parameter | Description
+--------- | -----------
+lead_id | The **lead_id** to add to an audience_list
+audience_list_id | The **audience_list_id** to add to the lead
+
+## Retrieve a Lead Audience List
+
+```shell
+curl -X GET \
+https://api.closum.com/api/lead-audience-list/1 \
+-H 'Accept: application/json' \
+-H 'Authorization: Bearer your.bearer.token' \
+-H 'Cache-Control: no-cache' \
+-H 'Content-Type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "data": {
+        "id": 1,
+        "lead_id": 1,
+        "audience_list_id": 924,
+        "creation_date": "2020-07-20T18:15:55+00:00"
+    }
+}
+```
+
+This endpoint retrieves a specific Email.
+
+### HTTP Request
+
+`GET https://api.closum.com/api/lead-audience-list/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the Lead Audience List to retrieve
+
 # Emails
 
 ## Email Properties
