@@ -257,6 +257,23 @@
                         </ul>
                   </li>
                   <li>
+                        <a href="#lead-audience-list" class="toc-h1 toc-link" data-title="lead-audience-list">Lead Audience List</a>
+                        <ul class="toc-list-h2">
+                              <li>
+                                    <a href="#lead-audience-list-properties" class="toc-h2 toc-link" data-title="lead-audience-list-properties">Lead Audience List Properties</a>
+                              </li>
+                              <li>
+                                    <a href="#list-all-lead-audience-list" class="toc-h2 toc-link" data-title="list-all-lead-audience-list">List All Lead Audience List</a>
+                              </li>
+                              <li>
+                                    <a href="#create-a-lead-audience-list" class="toc-h2 toc-link" data-title="create-a-lead-audience-list">Create a Lead Audience List</a>
+                              </li>
+                              <li>
+                                    <a href="#retrieve-a-lead-audience-list" class="toc-h2 toc-link" data-title="retrieve-a-lead-audience-list">Retrieve a Lead Audience List</a>
+                              </li>
+                        </ul>
+                  </li>
+                  <li>
                         <a href="#emails" class="toc-h1 toc-link" data-title="emails">Emails</a>
                         <ul class="toc-list-h2">
                               <li>
@@ -681,6 +698,153 @@ Parameter | Description
 name | The **name** of lead.
 email | A **JSON** email object
 phone | A **JSON** phone object -->
+<h1 id='lead-audience-list'>Lead Audience List</h1><h2 id='lead-audience-list-properties'>Lead Audience List Properties</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Read Only</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>integer</td>
+<td>True</td>
+<td>The <strong>id</strong> relative to lead_audience_list</td>
+</tr>
+<tr>
+<td>lead_id</td>
+<td>integer</td>
+<td>False</td>
+<td>The <strong>lead_id</strong> that we pretend to add to the audience_list</td>
+</tr>
+<tr>
+<td>audience_list_id</td>
+<td>integer</td>
+<td>False</td>
+<td>The <strong>audience_list_id</strong> that we pretend to add the lead_id</td>
+</tr>
+<tr>
+<td>creation_date</td>
+<td>date-time</td>
+<td>Yes</td>
+<td>The <strong>creation_date</strong> of the record</td>
+</tr>
+</tbody></table>
+<h2 id='list-all-lead-audience-list'>List All Lead Audience List</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+https://api.closum.com/api/lead-audience-list <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">289743</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"lead_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"audience_list_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">924</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"creation_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-20T18:15:55+00:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                  </span><span class="err">...</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_prev_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all lead associated with audience_list in your company.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.closum.com/api/lead-audience-list</code></p>
+<h2 id='create-a-lead-audience-list'>Create a Lead Audience List</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+https://api.closum.com/api/lead-audience-list <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-d <span class="s1">'{
+    "lead_id": 1,
+    "audience_list_id": 924
+}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to add a lead to an audience_list.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST https://api.closum.com/api/lead-audience-list</code></p>
+<h3 id='request-body-2'>Request body</h3>
+<p>Body should be formated in (absolutely) correct JSON format</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>lead_id</td>
+<td>The <strong>lead_id</strong> to add to an audience_list</td>
+</tr>
+<tr>
+<td>audience_list_id</td>
+<td>The <strong>audience_list_id</strong> to add to the lead</td>
+</tr>
+</tbody></table>
+<h2 id='retrieve-a-lead-audience-list'>Retrieve a Lead Audience List</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+https://api.closum.com/api/lead-audience-list/1 <span class="se">\</span>
+-H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer your.bearer.token'</span> <span class="se">\</span>
+-H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lead_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"audience_list_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">924</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"creation_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-20T18:15:55+00:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific Email.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.closum.com/api/lead-audience-list/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the Lead Audience List to retrieve</td>
+</tr>
+</tbody></table>
 <h1 id='emails'>Emails</h1><h2 id='email-properties'>Email Properties</h2>
 <table><thead>
 <tr>
@@ -749,7 +913,7 @@ https://api.closum.com/api/email <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all emails associated with your account.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://api.closum.com/api/email</code></p>
 <h2 id='create-a-new-email'>Create a New Email</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 https://api.closum.com/api/email <span class="se">\</span>
@@ -772,9 +936,9 @@ https://api.closum.com/api/email <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint allows you to add a new Email.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>POST https://api.closum.com/api/email</code></p>
-<h3 id='request-body-2'>Request body</h3>
+<h3 id='request-body-3'>Request body</h3>
 <p>Body should be formated in (absolutely) correct JSON format</p>
 
 <table><thead>
@@ -809,9 +973,9 @@ https://api.closum.com/api/email/1 <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific Email.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET https://api.closum.com/api/email/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -843,9 +1007,9 @@ https://api.closum.com/api/email/1 <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint updates a specific Email.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>PUT https://api.closum.com/api/email/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -857,7 +1021,7 @@ https://api.closum.com/api/email/1 <span class="se">\</span>
 <td>The ID of the Email to update</td>
 </tr>
 </tbody></table>
-<h3 id='request-body-3'>Request body</h3>
+<h3 id='request-body-4'>Request body</h3>
 <p>Body should be formated in (absolutely) correct JSON format</p>
 
 <table><thead>
@@ -946,7 +1110,7 @@ https://api.closum.com/api/phone <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all phones associated with your account.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET https://api.closum.com/api/phone</code></p>
 <h2 id='create-a-new-phone'>Create a New Phone</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 curl -X POST <span class="se">\</span>
@@ -971,9 +1135,9 @@ https://api.closum.com/api/phone <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint allows you to add a new Phone.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>POST https://api.closum.com/api/phone</code></p>
-<h3 id='request-body-4'>Request body</h3>
+<h3 id='request-body-5'>Request body</h3>
 <p>Body should be formated in (absolutely) correct JSON format</p>
 
 <table><thead>
@@ -1013,9 +1177,9 @@ https://api.closum.com/api/phone/1 <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific Phone.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>GET https://api.closum.com/api/phone/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-4'>URL Parameters</h3>
+<h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1048,9 +1212,9 @@ https://api.closum.com/api/phone/1 <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint updates a specific Phone.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>PUT https://api.closum.com/api/phone/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-5'>URL Parameters</h3>
+<h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1062,7 +1226,7 @@ https://api.closum.com/api/phone/1 <span class="se">\</span>
 <td>The ID of Phone to update</td>
 </tr>
 </tbody></table>
-<h3 id='request-body-5'>Request body</h3>
+<h3 id='request-body-6'>Request body</h3>
 <p>Body should be formated in (absolutely) correct JSON format</p>
 
 <table><thead>
@@ -1163,7 +1327,7 @@ https://api.closum.com/api/contact-lifecycle-stage/ <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all contact lifecycle stages.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-15'>HTTP Request</h3>
 <p><code>GET https://api.closum.com/api/contact-lifecycle-stage/</code></p>
 <h1 id='lead-opt-in'>Lead Opt In</h1><h2 id='lead-opt-in-properties'>Lead Opt In Properties</h2>
 <table><thead>
