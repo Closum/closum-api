@@ -305,6 +305,134 @@ name | The **name** of lead.
 email | A **JSON** email object
 phone | A **JSON** phone object -->
 
+# Audience List
+
+## Audience List Properties
+
+Parameter | Type | Read Only | Description
+--------- | --------- | --------- | -----------
+ID | integer | True | The **id** relative to audience_list
+name | string | False | The **name** that identifies the audience_list
+creation_date | date-time | Yes | The **creation_date** of the record
+
+## List All Audience List
+
+```shell
+curl -X GET \
+https://api.closum.com/api/audience-list \
+-H 'Accept: application/json' \
+-H 'Authorization: Bearer your.bearer.token' \
+-H 'Cache-Control: no-cache' \
+-H 'Content-Type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+      "success": true,
+      "data": [
+          {
+              "id": 289743,
+              "name": "My First Audience List",
+              "creation_date": "2020-07-20T18:15:55+00:00"
+          },
+          {
+              ...
+          }
+      ],
+      "pagination": {
+            "page_count": 100,
+            "current_page": 1,
+            "has_next_page": true,
+            "has_prev_page": false,
+            "count": 2500,
+            "limit": null
+      }
+}
+```
+
+This endpoint retrieves all audience_list records in your company.
+
+### HTTP Request
+
+`GET https://api.closum.com/api/audience-list`
+
+
+## Create an Audience List
+
+```shell
+curl -X POST \
+https://api.closum.com/api/audience-list \
+-H 'Accept: application/json' \
+-H 'Authorization: Bearer your.bearer.token' \
+-H 'Cache-Control: no-cache' \
+-H 'Content-Type: application/json' \
+-d '{
+    "name": "My First Audience List"
+}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+      "success": true,
+      "data": {
+            "id": 1
+      }
+}
+```
+
+This endpoint allows you to create a new audience_list.
+
+### HTTP Request
+
+`POST https://api.closum.com/api/audience-list`
+
+### Request body
+Body should be formated in (absolutely) correct JSON format
+
+Parameter | Description
+--------- | -----------
+name | The **name** that identifies the audience_list
+
+## Retrieve an Audience List
+
+```shell
+curl -X GET \
+https://api.closum.com/api/audience-list/1 \
+-H 'Accept: application/json' \
+-H 'Authorization: Bearer your.bearer.token' \
+-H 'Cache-Control: no-cache' \
+-H 'Content-Type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "data": {
+        "id": 1,
+        "name": "My First Audience List",
+        "creation_date": "2020-07-20T18:15:55+00:00"
+    }
+}
+```
+
+This endpoint retrieves a specific Audience List.
+
+### HTTP Request
+
+`GET https://api.closum.com/api/audience-list/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the Audience List to retrieve
+
 # Lead Audience List
 
 ## Lead Audience List Properties
@@ -426,7 +554,7 @@ https://api.closum.com/api/lead-audience-list/1 \
 }
 ```
 
-This endpoint retrieves a specific Email.
+This endpoint retrieves a specific Lead Audience List.
 
 ### HTTP Request
 
